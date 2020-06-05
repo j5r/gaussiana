@@ -1,5 +1,15 @@
 let FORMDATA = {calcprob: 1, dx: 0.00001}
 
+FORMDATA.parseVari = function (vari){
+    FORMDATA.s2 = parseFloat(vari)
+    FORMDATA.s = Math.sqrt(FORMDATA.s2)
+    }
+FORMDATA.parsestd = function (std){
+    FORMDATA.s = parseFloat(s)
+    FORMDATA.s2 = FORMDATA.s * FORMDATA.s
+    }
+
+
 let warnColor = "#B22424"
 let inputColor = "#8EB240"
 let disabledColor = "#8A996B"
@@ -18,8 +28,9 @@ function getMedia(){
         FORMDATA.m = parseFloat(media.value)
         console.log(FORMDATA)
         }
-
     }
+
+
 
 function getVariancia(){
     variancia = document.getElementById("input-variancia")
@@ -30,10 +41,9 @@ function getVariancia(){
         }
     else{
         variancia.style.backgroundColor = inputColor
-        FORMDATA.s2 = parseFloat(variancia.value)
+        FORMDATA.parseVari(variancia.value)
         console.log(FORMDATA)
         }
-
     }
 
 function getX1(){
@@ -136,6 +146,7 @@ function okCalculo(){
     }
 
 function calcular(){
+    document.getElementById("calcular").innerText = "Aguarde"
     if(getMedia() || getVariancia()){erroDeCalculo()}else{okCalculo()}
 
     if(FORMDATA.calcprob){
@@ -230,7 +241,7 @@ var CHART = new Chart(document.getElementById("canvas"),
     type: 'line',
     data: {
     datasets: [{
-        label: 'Distribuição Normal Padrão',
+        label: 'Distribuição Normal',
         data: DADOS,
         fill:false,
         borderColor:"rgb(75, 192, 192)",
@@ -255,11 +266,4 @@ var CHART = new Chart(document.getElementById("canvas"),
     }
 )
 
-
-
-function x___(){
-   CHART.chart.config.data.datasets[0].data =
-   CHART.chart.config.data.datasets[0].data.concat(estruturar([3+Math.random()],[Math.random()]));
-   CHART.update();
-}
 
