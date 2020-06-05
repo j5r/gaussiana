@@ -1,0 +1,97 @@
+<!DOCTYPE html5>
+<html lang="pt-br">
+    <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./normal.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="./normal.js"></script>
+    </head>
+
+
+    <body>
+
+        <div id="topo">
+                Distribuição Normal
+        </div>
+
+
+
+
+
+
+        <div id="lateral">
+            <div id="lateral-opcoes">
+                <div id="media" class="opcao">
+                    <span>Média</span>
+                    <input id="input-media" class="inputs"
+                    type="text" placeholder="Média" onmouseover='this.focus()'
+                    onchange="getMedia()"
+                    >
+                </div>
+
+                <div id="variancia" class="opcao">
+                    <span>Variância</span>
+                    <input id="input-variancia" class="inputs"
+                    type="text" placeholder="Variância" onmouseover='this.focus()'
+                    onchange="getVariancia()"
+                    >
+                </div>
+
+                <div id="x" class="opcao">
+                    <input id="input-x1" class="inputs"
+                    type="text" placeholder="valor"  onmouseover='this.focus()'
+                    onchange="getX1()"
+                    >
+                    <span id="span-le">&le;</span>
+                    <span id="span-x"> X </span>
+                    <span id="span-ge">&le;</span>
+                    <input id="input-x2" class="inputs"
+                    type="text" placeholder="valor"  onmouseover='this.focus()'
+                    onchange="getX2()"
+                    >
+                </div>
+
+                <div id="probabilidade" class="opcao">
+                    <span>Probabilidade</span>
+                    <input id="input-probabilidade" class="inputs"
+                    type="text" placeholder="valor"  onmouseover='this.focus()'
+                    onchange="getProbabilidade()"
+                    >
+                </div>
+
+                <button id="calcular" class="opcao" onclick="calcular()"
+                >
+                    Calcular
+                </button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div id="main">
+
+            <div id="txt1">Gráfico da função densidade de probabilidade de X:</div>
+
+            <div id="div-canvas">
+            <canvas id="canvas"></canvas>
+            </div>
+
+            <div id="div-obs">
+            </div>
+        </div>
+
+
+
+
+
+
+        <div id="footer">
+        </div>
+
+    </body>
+    <script src="./chart.js"></script>
+</html>
