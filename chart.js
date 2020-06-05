@@ -230,7 +230,7 @@ var CHART = new Chart(document.getElementById("canvas"),
     type: 'line',
     data: {
     datasets: [{
-        label: 'Distribuição Normal Padrão',
+        label: 'Distribuição Normal',
         data: DADOS,
         fill:false,
         borderColor:"rgb(75, 192, 192)",
