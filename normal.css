@@ -4,6 +4,7 @@ list-style: none;
 text-decoration: none;
 font-weight: bold;
 color: #27331A;
+font-family: Noto Sans;
 }
 
 html, body{
@@ -30,7 +31,6 @@ grid-template-areas:"topo topo"
 background: #7C992E;
 grid-area: topo;
 padding: 1vh;
-font-family: Noto Sans;
 font-size: 9vmin;
 text-align: center;
 color: #27331A;

@@ -136,6 +136,7 @@ function okCalculo(){
     }
 
 function calcular(){
+    document.getElementById("calcular").innerText = "Aguarde"
     if(getMedia() || getVariancia()){erroDeCalculo()}else{okCalculo()}
 
     if(FORMDATA.calcprob){
@@ -255,11 +256,4 @@ var CHART = new Chart(document.getElementById("canvas"),
     }
 )
 
-
-
-function x___(){
-   CHART.chart.config.data.datasets[0].data =
-   CHART.chart.config.data.datasets[0].data.concat(estruturar([3+Math.random()],[Math.random()]));
-   CHART.update();
-}
 
