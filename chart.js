@@ -1,5 +1,15 @@
 let FORMDATA = {calcprob: 1, dx: 0.00001}
 
+FORMDATA.parseVari = function (vari){
+    FORMDATA.s2 = parseFloat(vari)
+    FORMDATA.s = Math.sqrt(FORMDATA.s2)
+    }
+FORMDATA.parsestd = function (std){
+    FORMDATA.s = parseFloat(s)
+    FORMDATA.s2 = FORMDATA.s * FORMDATA.s
+    }
+
+
 let warnColor = "#B22424"
 let inputColor = "#8EB240"
 let disabledColor = "#8A996B"
@@ -18,8 +28,9 @@ function getMedia(){
         FORMDATA.m = parseFloat(media.value)
         console.log(FORMDATA)
         }
-
     }
+
+
 
 function getVariancia(){
     variancia = document.getElementById("input-variancia")
@@ -30,10 +41,9 @@ function getVariancia(){
         }
     else{
         variancia.style.backgroundColor = inputColor
-        FORMDATA.s2 = parseFloat(variancia.value)
+        FORMDATA.parseVari(variancia.value)
         console.log(FORMDATA)
         }
-
     }
 
 function getX1(){

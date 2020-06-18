@@ -212,3 +212,8 @@ background: #7C992E;
 }
 
 
+#footer > div{
+float: right;
+margin-right: 5vw;
+margin-top: 3vh;
+}
