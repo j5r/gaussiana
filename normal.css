@@ -34,7 +34,8 @@ grid-area: topo;
 padding: 1vh;
 font-size: 9vmin;
 text-align: center;
-color: #27331A;
+color: #c5ff82;
+text-shadow: 5px 5px 10px #000;
 }
 
 #lateral{/**/
@@ -217,4 +218,13 @@ background: #7C992E;
 float: right;
 margin-right: 5vw;
 margin-top: 3vh;
+}
+
+#footer > div > a{
+transition: all 0.5s;
+}
+
+#footer > div > a:hover {
+color: #c5ff82;
+text-shadow: 5px 5px 10px #000;
 }
