@@ -28,8 +28,9 @@ def regressao_polinomial(x, y, grau=1):
             matriz[eq, coef] = soma_potencias_x[index]
             index -= 1
         index += grau
+    precond = np.diag(1/np.diag(matriz))
 
-    coeficientes = np.linalg.solve(matriz, y_vezes_x_n)
+    coeficientes = np.linalg.solve(precond@matriz, precond@y_vezes_x_n)
     def fun(x): return sum([coeficientes[i] * (x ** (grau-i))
                             for i in range(grau+1)])
     return coeficientes, fun
@@ -55,8 +56,10 @@ def solve_plot(x, y, grau=1, plot=False):
 
 global HTML_PAGE
 HTML_PAGE = """
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
 <header>
+  <meta charset="UTF-8">
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});
   </script>
@@ -104,8 +107,7 @@ HTML_PAGE = """
 </header>
 
 <body>
-<h1> REGRESSÃO LINEAR POLINOMIAL
-</h1>
+<h1> REGRESSÃO LINEAR POLINOMIAL </h1>
 <br>
 <div style="width:60vw;height:60vh;">
     <canvas id="canvas"  class="chartjs-render-monitor"></canvas>
@@ -232,5 +234,5 @@ def my_plot(x, y, graus=[0, 1, 2, 3, 4]):
     HTML_PAGE = HTML_PAGE.replace('**NOME_GRAFICOS', repr(NOME_GRAFICOS))
     HTML_PAGE = HTML_PAGE.replace("**FUNCOES", equacoes)
 
-    with open('relatorio.html', 'w') as f:
-        f.write(HTML_PAGE)
+    with open('relatorio.html', 'wb') as f:
+        f.write(str.encode(HTML_PAGE))
