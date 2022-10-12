@@ -103,6 +103,9 @@ HTML_PAGE = """
     div.equacao > span{
         color: red;
     }
+    h1,h2{
+        margin-left: 10vw;
+    }
   </style>
 </header>
 
@@ -116,6 +119,15 @@ HTML_PAGE = """
 
 <div class="content">
 **FUNCOES
+</div>
+
+<h2>DADOS</h2>
+<div class="equacao" style="margin-top:1vh;">
+x = **XX
+</div>
+
+<div class="equacao">
+y = **YY
 </div>
 
 <script>
@@ -233,6 +245,8 @@ def my_plot(x, y, graus=[0, 1, 2, 3, 4]):
     HTML_PAGE = HTML_PAGE.replace('**Y_GRAFICOS', repr(Y_GRAFICOS))
     HTML_PAGE = HTML_PAGE.replace('**NOME_GRAFICOS', repr(NOME_GRAFICOS))
     HTML_PAGE = HTML_PAGE.replace("**FUNCOES", equacoes)
+    HTML_PAGE = HTML_PAGE.replace("**XX", repr(x))
+    HTML_PAGE = HTML_PAGE.replace("**YY", repr(y))
 
     with open('relatorio.html', 'wb') as f:
         f.write(str.encode(HTML_PAGE))
