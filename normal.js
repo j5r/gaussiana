@@ -25,13 +25,13 @@ function integral(fun,a,b,dx){
 
 /////////////////////
 function normalPadrao(obj){ // {lower:0.3} {upper: 0.5} {dx: 0.001}
-    if(obj.l===undefined){lower = -6}
+    if(obj.l===undefined){lower = -5.4}
     else{lower = obj.l}
 
-    if(obj.u===undefined){upper = 6}
+    if(obj.u===undefined){upper = 5.4}
     else{upper = obj.u}
 
-    if(obj.dx===undefined){dx = 1e-6}
+    if(obj.dx===undefined){dx = 7e-6}
     else{dx = obj.dx}
 
     // lower upper dx parseFloat(VALUE.toFixed(Math.abs(parseInt(Math.log10(DX)))))
