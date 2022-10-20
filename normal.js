@@ -48,7 +48,7 @@ function normalPadrao(obj){ // {lower:0.3} {upper: 0.5} {dx: 0.001}
     }
 
 //////////////////////
-function normalInversePadrao(probabilidade,tolerancia=1e-6){
+function normalInversePadrao(probabilidade,tolerancia=7e-6){
     //calculando intervalo inicial
     bound = {lower: -1, upper: 1}
     while(true){//limitante inferior
@@ -70,7 +70,7 @@ function normalInversePadrao(probabilidade,tolerancia=1e-6){
     erro = 10
     while(erro>=tolerancia){
         ptoMedio = 0.5*(bound.lower + bound.upper)
-        probPtoMedio = normalPadrao({u:ptoMedio,dx:1e-6})
+        probPtoMedio = normalPadrao({u:ptoMedio,dx:7e-6})
         if(probPtoMedio >= probabilidade){
             bound.upper = ptoMedio
             }
@@ -111,7 +111,7 @@ function normal(obj){ //{l,u,dx}
     if(obj.u===undefined){upper = obj.m + 6*obj.s}
     else{upper = obj.u}
 
-    if(obj.dx===undefined){dx = 1e-6}
+    if(obj.dx===undefined){dx = 7e-6}
     else{dx = obj.dx}
 
     lower = (lower - obj.m)/obj.s
